@@ -1,4 +1,4 @@
-int pv1v2 = A0;
+int pv1v2 = A0; // A0 and A3 are port identifiers shown on the Arduino board
 int pv2 = A3;
 
 void setup() {
@@ -10,17 +10,22 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+
+  // convert ADC readings
   float v1v2 = analogRead(pv1v2)*(5.0/1023.0); // unit: V
   float v2 = analogRead(pv2)*(5.0/1023.0); // unit: V
-  //Serial.println(voltageV1V2);
-  //Serial.println(voltageV2);
 
   float v1 = v1v2 - v2;
   Serial.print(v1);
   Serial.print(" ");
-  float R2 = 82.0; // the resistance for our current sensing; unit: Ohms
+  
+  // the resistance we use to measure current
+  // unit: Ohms
+  // change it if need be
+  float R2 = 82.0;
+
   float i = v2*1000/R2; // unit: mA
   Serial.println(i);
   
-  delay(2);
+  delay(2); // this translates to our sampling rate
 }
