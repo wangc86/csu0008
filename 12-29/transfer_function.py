@@ -5,7 +5,7 @@ fig = plt.figure()
 ax = fig.add_subplot()
 ax.set_xlabel('V_IN (V)')
 ax.set_ylabel('V_OUT (V)')
-ax.set_title('Transfer Function of Circuit A')
+ax.set_title('Transfer Function of Circuit B')
 
 filename = "./transfer.txt"
 v_in, v_out = np.loadtxt( filename, delimiter=' ', unpack=True)
